@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 
 from app.database import Base, engine
-from app.routes.bairro_routes import router as bairro_router
-from app.models import bairro, curso, atividade
+from app.routes.ceu_routes import router as bairro_router
+from app.models import ceu, curso, atividade
 
 app = FastAPI(title="Projeto Integrador API", version="1.0")
 
