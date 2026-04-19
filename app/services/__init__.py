@@ -1,5 +1,5 @@
 """Pacote de serviços da aplicação."""
 
-from app.services import bairro_service
+from app.services import ceu_service
 
-__all__ = ["bairro_service"]
+__all__ = ["ceu_service"]

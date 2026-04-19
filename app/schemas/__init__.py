@@ -1,5 +1,5 @@
 """Pacote de esquemas Pydantic."""
 
-from app.schemas.bairro import BairroCreate, BairroResponse
+from app.schemas.ceu import CeuCreate, CeuResponse
 
-__all__ = ["BairroCreate", "BairroResponse"]
+__all__ = ["CeuCreate", "CeuResponse"]
