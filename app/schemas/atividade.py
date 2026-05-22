@@ -9,6 +9,7 @@ class AtividadeCreate(BaseModel):
 
 class AtividadeResponse(BaseModel):
     id: int
+    titulo: str
     descricao: str
     data: date
     ceu_id: int

@@ -17,7 +17,7 @@ def get_db() -> Generator[Session, None, None]:
     finally:
         db.close()
 
-@router.post("/atividades", response_model=AtividadeCreate, status_code=201)
+@router.post("/atividades", response_model=AtividadeResponse, status_code=201)
 def criar_atividade(atividade: AtividadeCreate, db: Session = Depends(get_db)) -> AtividadeResponse:
     """Cria uma nova atividade no banco de dados."""
     return atividade_service.criar_atividade(db, atividade)

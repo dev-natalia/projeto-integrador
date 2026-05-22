@@ -29,7 +29,7 @@ def atualizar_atividade(db: Session, atividade_id: int, dados: AtividadeCreate) 
     atividade_obj.titulo = dados.titulo
     atividade_obj.descricao = dados.descricao
     atividade_obj.data = dados.data
-    atividade_obj.ceu_id = atividade_obj.ceu_id
+    atividade_obj.ceu_id = dados.ceu_id
     db.commit()
     db.refresh(atividade_obj)
     return atividade_obj
