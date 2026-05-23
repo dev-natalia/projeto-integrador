@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from datetime import date
 
 class CursoCreate(BaseModel):
@@ -17,5 +17,4 @@ class CursoResponse(BaseModel):
     data_fim: date
     ceu_id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)

@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class CeuCreate(BaseModel):
@@ -13,5 +13,4 @@ class CeuResponse(BaseModel):
     bairro: str
     endereco: str
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)

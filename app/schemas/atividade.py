@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from datetime import date
 
 class AtividadeCreate(BaseModel):
@@ -14,5 +14,4 @@ class AtividadeResponse(BaseModel):
     data: date
     ceu_id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)

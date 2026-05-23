@@ -1,4 +1,5 @@
 from typing import Iterable, Optional
+from datetime import date
 
 from sqlalchemy.orm import Session
 
@@ -13,13 +14,14 @@ def criar_atividade(db: Session, atividade: AtividadeCreate) -> Atividade:
     db.refresh(registro)
     return registro
 
-def listar_atividades(db: Session) -> Iterable[Atividade]:
-    """Retorna todas as atividades cadastradas no banco de dados."""
-    return db.query(Atividade).all()
-
-def filtrar_por_ceu(db:Session, ceu_id: int) -> Iterable[Atividade]:
-    """Retorna atividades filtradas por ceu_id"""
-    return db.query(Atividade).filter(Atividade.ceu_id == ceu_id).all()
+def listar_atividades(db: Session, ceu_id: Optional[int] = None, data_filtro: Optional[date] = None) -> Iterable[Atividade]:
+    """Retorna atividades com base nos filtros opcionais."""
+    query = db.query(Atividade)
+    if ceu_id is not None:
+        query = query.filter(Atividade.ceu_id == ceu_id)
+    if data_filtro is not None:
+        query = query.filter(Atividade.data == data_filtro)
+    return query.all()
 
 def atualizar_atividade(db: Session, atividade_id: int, dados: AtividadeCreate) -> Optional[Atividade]:
     """Atualiza os dados de uma atividade existente, se ela existir."""

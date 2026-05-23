@@ -1,4 +1,5 @@
 from typing import Iterable, Optional
+from datetime import date
 
 from sqlalchemy.orm import Session
 
@@ -15,9 +16,14 @@ def criar_curso(db: Session, curso: CursoCreate) -> Curso:
     return novo
 
 
-def listar_cursos(db: Session) -> Iterable[Curso]:
-    """Retorna todos os cursos cadastrados no banco de dados."""
-    return db.query(Curso).all()
+def listar_cursos(db: Session, ceu_id: Optional[int] = None, data_filtro: Optional[date] = None) -> Iterable[Curso]:
+    """Retorna cursos com base nos filtros opcionais (ceu_id e data)."""
+    query = db.query(Curso)
+    if ceu_id is not None:
+        query = query.filter(Curso.ceu_id == ceu_id)
+    if data_filtro is not None:
+        query = query.filter(Curso.data_inicio <= data_filtro, Curso.data_fim >= data_filtro)
+    return query.all()
 
 
 def atualizar_curso(db: Session, curso_id: int, dados: CursoCreate) -> Optional[Curso]:
@@ -34,10 +40,6 @@ def atualizar_curso(db: Session, curso_id: int, dados: CursoCreate) -> Optional[
     db.commit()
     db.refresh(curso_obj)
     return curso_obj
-
-def buscar_por_ceu(db: Session, ceu_id: int) -> Iterable[Curso]:
-    """Retorna todos cursos filtrados por ceu_id."""
-    return db.query(Curso).filter(Curso.ceu_id == ceu_id).all()
 
 def deletar_curso(db: Session, curso_id: int) -> bool:
     """Remove um curso do banco de dados, retornando True se excluído."""
