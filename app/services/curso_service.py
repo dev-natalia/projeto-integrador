@@ -8,7 +8,7 @@ from app.schemas.curso import CursoCreate
 
 def criar_curso(db: Session, curso: CursoCreate) -> Curso:
     """Cria um novo objeto Curso e persiste no banco de dados."""
-    novo = Curso(titulo=curso.titulo, descricao=curso.descricao, data_inicio=curso.data_inicio, data_fim=curso.data_fim, bairro_id=curso.bairro_id)
+    novo = Curso(titulo=curso.titulo, descricao=curso.descricao, data_inicio=curso.data_inicio, data_fim=curso.data_fim, ceu_id=curso.ceu_id)
     db.add(novo)
     db.commit()
     db.refresh(novo)
@@ -29,7 +29,7 @@ def atualizar_curso(db: Session, curso_id: int, dados: CursoCreate) -> Optional[
     curso_obj.descricao = dados.descricao
     curso_obj.data_inicio = dados.data_inicio
     curso_obj.data_fim = dados.data_fim
-    curso_obj.bairro_id = dados.bairro_id
+    curso_obj.ceu_id = dados.ceu_id
 
     db.commit()
     db.refresh(curso_obj)
@@ -37,7 +37,7 @@ def atualizar_curso(db: Session, curso_id: int, dados: CursoCreate) -> Optional[
 
 def buscar_por_ceu(db: Session, ceu_id: int) -> Iterable[Curso]:
     """Retorna todos cursos filtrados por ceu_id."""
-    return db.query(Curso).filter(Curso.bairro_id == ceu_id).all()
+    return db.query(Curso).filter(Curso.ceu_id == ceu_id).all()
 
 def deletar_curso(db: Session, curso_id: int) -> bool:
     """Remove um curso do banco de dados, retornando True se excluído."""

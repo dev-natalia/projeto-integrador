@@ -10,4 +10,4 @@ class Curso(Base):
     descricao = Column(String)
     data_inicio = Column(Date)
     data_fim = Column(Date)
-    bairro_id = Column(Integer, ForeignKey("bairros.id"))
+    ceu_id = Column(Integer, ForeignKey("ceu.id"))

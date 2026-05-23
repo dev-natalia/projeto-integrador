@@ -1,20 +1,17 @@
 from pydantic import BaseModel
 from datetime import date
 
-class CursoCreate(BaseModel):
+class AtividadeCreate(BaseModel):
     titulo: str
     descricao: str
-    data_inicio: date
-    data_fim: date
+    data: date
     ceu_id: int
 
-
-class CursoResponse(BaseModel):
+class AtividadeResponse(BaseModel):
     id: int
     titulo: str
     descricao: str
-    data_inicio: date
-    data_fim: date
+    data: date
     ceu_id: int
 
     class Config:
