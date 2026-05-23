@@ -1,18 +1,18 @@
 # 📌 Projeto Integrador
 
-## Site de Cursos e Atividades Gratuitas por Bairro
+## Site de Cursos e Atividades Gratuitas por Ceu
 
 ------------------------------------------------------------------------
 
 ## 📖 Resumo
 
 Este projeto consiste no desenvolvimento de uma API para um site que
-disponibiliza cursos e atividades gratuitas organizadas por bairro e
+disponibiliza cursos e atividades gratuitas organizadas por ceu e
 data.
 
 A plataforma permitirá que usuários visualizem cursos e atividades
 disponíveis sem necessidade de login, podendo filtrar os resultados por
-bairro e período.
+ceu e período.
 
 O sistema contará com um único administrador responsável por cadastrar,
 editar e excluir informações.
@@ -31,18 +31,18 @@ O objetivo do projeto é aplicar conceitos de:
 
 ## 👤 Área Pública
 
--   Listar bairros\
+-   Listar ceus\
 -   Listar cursos\
 -   Listar atividades\
--   Filtrar cursos por bairro\
+-   Filtrar cursos por ceu\
 -   Filtrar cursos por data\
--   Filtrar atividades por bairro\
+-   Filtrar atividades por ceu\
 -   Filtrar atividades por data
 
 ## 🔐 Área Administrativa
 
 -   Login do administrador\
--   Cadastrar bairros\
+-   Cadastrar ceus\
 -   Cadastrar cursos\
 -   Cadastrar atividades\
 -   Editar registros\
@@ -156,17 +156,17 @@ app/
 
 O sistema contará com as seguintes entidades:
 
--   Bairro\
+-   Ceu\
 -   Curso\
 -   Atividade\
 -   Admin
 
 ### Relacionamentos principais:
 
--   Um bairro pode ter vários cursos (1:N)\
--   Um bairro pode ter várias atividades (1:N)\
--   Um curso pertence a um único bairro (N:1)\
--   Uma atividade pertence a um único bairro (N:1)
+-   Um ceu pode ter vários cursos (1:N)\
+-   Um ceu pode ter várias atividades (1:N)\
+-   Um curso pertence a um único ceu (N:1)\
+-   Uma atividade pertence a um único ceu (N:1)
 
 ------------------------------------------------------------------------
 
