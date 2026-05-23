@@ -8,7 +8,9 @@ from app.schemas.ceu import CeuCreate
 
 def criar_ceu(db: Session, ceu: CeuCreate) -> Ceu:
     """Cria um novo objeto Ceu e persiste no banco de dados."""
-    novo = Ceu(nome=ceu.nome, bairro=ceu.bairro, endereco=ceu.endereco)
+    novo = Ceu(
+        nome=ceu.nome, bairro=ceu.bairro, endereco=ceu.endereco, telefone=ceu.telefone
+    )
     db.add(novo)
     db.commit()
     db.refresh(novo)
@@ -28,6 +30,7 @@ def atualizar_ceu(db: Session, ceu_id: int, dados: CeuCreate) -> Optional[Ceu]:
     ceu_obj.nome = dados.nome
     ceu_obj.bairro = dados.bairro
     ceu_obj.endereco = dados.endereco
+    ceu_obj.telefone = dados.telefone
     db.commit()
     db.refresh(ceu_obj)
     return ceu_obj

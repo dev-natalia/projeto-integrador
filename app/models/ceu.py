@@ -9,3 +9,4 @@ class Ceu(Base):
     nome = Column(String)
     bairro = Column(String)
     endereco = Column(String)
+    telefone = Column(String)

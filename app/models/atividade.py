@@ -1,4 +1,4 @@
-from sqlalchemy import Column, ForeignKey, Integer, String, Date
+from sqlalchemy import Column, ForeignKey, Integer, String, Date, Time
 
 from app.database import Base
 
@@ -11,5 +11,7 @@ class Atividade(Base):
     id = Column(Integer, primary_key=True, index=True)
     titulo = Column(String, nullable=False)
     descricao = Column(String, nullable=True)
-    data = Column(Date)
+    data = Column(Date, nullable=False)
+    hora_inicio = Column(Time, nullable=False)
+    hora_fim = Column(Time, nullable=True)
     ceu_id = Column(Integer, ForeignKey("ceu.id"), nullable=True)
